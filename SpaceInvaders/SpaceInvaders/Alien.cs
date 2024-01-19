@@ -15,20 +15,22 @@ namespace SpaceInvaders
         private Texture2D _bulletTexture;
         private Vector2 _position;
         private float _delay = 1;
-        private SpriteBatch _spriteBatch;
         private GraphicsDeviceManager _graphics;
 
         private List<Bullet> _bullets;
 
-        public Alien(Texture2D alien, Texture2D bulletTexture, Vector2 position, SpriteBatch spriteBatch, GraphicsDeviceManager grapics)
+        public Alien(Texture2D alien, Texture2D bulletTexture, Vector2 position, GraphicsDeviceManager grapics)
         {
             _alien = alien;
             _bulletTexture = bulletTexture;
             _position = position;
-            _spriteBatch = spriteBatch;
             _graphics = grapics;
 
             _bullets = new List<Bullet>();
+        }
+        public Vector2 Position
+        {
+            get { return _position; }
         }
         public void Draw(SpriteBatch pSpriteBatch)
         {
@@ -65,7 +67,7 @@ namespace SpaceInvaders
                 bullet.Update(gameTime);
 
                 // Remove bullets that are off-screen
-                if (bullet.Position.Y < 0 || bullet.Position.Y !> _graphics.PreferredBackBufferHeight)
+                if (bullet.Position.Y < 0 || bullet.Position.Y >= _graphics.PreferredBackBufferHeight)
                 {
                     _bullets.Remove(bullet);
                     Console.WriteLine("removing bullet");

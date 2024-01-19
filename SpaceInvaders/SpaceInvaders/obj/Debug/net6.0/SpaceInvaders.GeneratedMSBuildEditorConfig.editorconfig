@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SpaceInvaders
-build_property.ProjectDir = C:\Users\siets\Coding\Periode 1 2022-2023\C#\Space-Invaders\SpaceInvaders\SpaceInvaders\
+build_property.ProjectDir = C:\Sietse\C#\Space-Invaders\SpaceInvaders\SpaceInvaders\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

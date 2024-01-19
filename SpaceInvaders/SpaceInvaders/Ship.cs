@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace SpaceInvaders
 {
@@ -14,22 +16,29 @@ namespace SpaceInvaders
         private int _health = 3;
         private Vector2 _position;
         private float _speed;
-        private SpriteBatch _spriteBatch;
         private GraphicsDeviceManager _graphics;
         private float _delay = 1;
+        private SpriteFont _scoreFont;
+        private int _score;
 
-        private List<Bullet> _bullets; // Add this field
+        private List<Bullet> _bullets;
 
-        public Ship(Texture2D ship, Texture2D bulletTexture, Vector2 position, float speed, SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
+        public Ship(Texture2D ship, Texture2D bulletTexture, Vector2 position,SpriteFont scoreFont, float speed, GraphicsDeviceManager graphics)
         {
             _ship = ship;
             _position = position;
             _speed = speed;
-            _spriteBatch = spriteBatch;
             _graphics = graphics;
             _bulletTexture = bulletTexture;
+            _scoreFont = scoreFont;
+            _bullets = new List<Bullet>();
+        }
+        private bool CheckCollision(Bullet bullet, Alien alien)
+        {
+            Rectangle bulletRect = new Rectangle((int)bullet.Position.X, (int)bullet.Position.Y, 8, 8);
+            Rectangle alienRect = new Rectangle((int)alien.Position.X - (64 / 2), (int)alien.Position.Y - (64 / 2), 64, 64);
 
-            _bullets = new List<Bullet>(); // Initialize the list
+            return bulletRect.Intersects(alienRect);
         }
 
         public void MoveShip(GameTime gameTime)
@@ -64,13 +73,26 @@ namespace SpaceInvaders
             Bullet newBullet = new Bullet(bulletTexture, new Vector2(_position.X, _position.Y - (_ship.Height / 2)), 200f,SpriteEffects.None);
             _bullets.Add(newBullet);
         }
-        public void UpdateBullets(GameTime gameTime)
+        public void UpdateBullets(GameTime gameTime, List<Alien> aliens)
         {
             // Update all bullets in the list
             foreach (Bullet bullet in _bullets.ToList())
             {
                 bullet.Update(gameTime);
+                // Use ToList() to avoid modifying the list during iteration
+                foreach (Alien alien in aliens.ToList()) 
+                {
+                    if (CheckCollision(bullet, alien))
+                    {
+                        _bullets.Remove(bullet);
+                        Console.WriteLine("Bullet hit an alien!");
 
+                        _score += 10;
+
+                        aliens.Remove(alien);
+                        Console.WriteLine("Removed alien");
+                    }
+                }
                 // Remove bullets that are off-screen
                 if (bullet.Position.Y < 0 || bullet.Position.Y > _graphics.PreferredBackBufferHeight)
                 {
@@ -86,6 +108,8 @@ namespace SpaceInvaders
                 bullet.Draw(pSpriteBatch);
             }
             pSpriteBatch.Draw(_ship, _position, null, Color.White, 0f, new Vector2(_ship.Width / 2, _ship.Height / 2), Vector2.One, SpriteEffects.None, 0f);
+            pSpriteBatch.DrawString(_scoreFont, "Score: " + _score, new Vector2(_graphics.PreferredBackBufferWidth -100, 550), Color.White);
+
         }
     }
 }

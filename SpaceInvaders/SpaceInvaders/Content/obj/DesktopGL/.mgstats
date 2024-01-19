@@ -1,1 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/Alien.png","C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bin/DesktopGL/Alien.xnb","TextureProcessor","Texture2DContent",446,16469,0,0656573
+"C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bullet.png","C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bin/DesktopGL/bullet.xnb","TextureProcessor","Texture2DContent",190,341,0,0007691
+"C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/Score.spritefont","C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bin/DesktopGL/Score.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0,0540239
+"C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/spaceship.png","C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bin/DesktopGL/spaceship.xnb","TextureProcessor","Texture2DContent",672,16469,0,0010386

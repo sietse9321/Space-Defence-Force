@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj": {}
+    "C:\\Sietse\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj": {}
   },
   "projects": {
-    "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj": {
+    "C:\\Sietse\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj",
+        "projectUniqueName": "C:\\Sietse\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj",
         "projectName": "SpaceInvaders",
-        "projectPath": "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj",
-        "packagesPath": "C:\\Users\\siets\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\obj\\",
+        "projectPath": "C:\\Sietse\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj",
+        "packagesPath": "C:\\Users\\Roland\\.nuget\\packages\\",
+        "outputPath": "C:\\Sietse\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\siets\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Roland\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -14,6 +14,7 @@ namespace SpaceInvaders
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private List<Alien> _alienList;
+        private SpriteFont _scoreFont; 
         Ship ship;
         Alien alien;
 
@@ -44,6 +45,7 @@ namespace SpaceInvaders
             spaceShip = Content.Load<Texture2D>("spaceship");
             bulletTexture = Content.Load<Texture2D>("bullet");
             alienShip = Content.Load<Texture2D>("alien");
+            _scoreFont = Content.Load<SpriteFont>("Score");
             // TODO: use this.Content to load your game content
             LoadStartingContent();
         }
@@ -54,7 +56,7 @@ namespace SpaceInvaders
                 Exit();
             // TODO: Add your update logic here
             ship.MoveShip(gameTime);
-            ship.UpdateBullets(gameTime);
+            ship.UpdateBullets(gameTime,_alienList);
             foreach (Alien alien in _alienList)
             {
                 alien.AlienActions(gameTime);
@@ -82,11 +84,11 @@ namespace SpaceInvaders
         /// </summary>
         void LoadStartingContent()
         {
-            ship = new Ship(spaceShip, bulletTexture, shipPos, 200f, _spriteBatch, _graphics);
+            ship = new Ship(spaceShip, bulletTexture, shipPos,_scoreFont, 200f, _graphics);
 
             for (int i = 0; i < 10; i++)
             {
-                alien = new Alien(alienShip, bulletTexture, alienPos, _spriteBatch, _graphics);
+                alien = new Alien(alienShip, bulletTexture, alienPos, _graphics);
                 alienPos.X += 100f;
                 _alienList.Add(alien);
             }

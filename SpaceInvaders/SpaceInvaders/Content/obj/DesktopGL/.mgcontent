@@ -4,11 +4,13 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/siets/Coding/Periode 1 2022-2023/C#/SpaceInvaders/SpaceInvaders/Content/Alien.png</File>
-    <File>C:/Users/siets/Coding/Periode 1 2022-2023/C#/SpaceInvaders/SpaceInvaders/Content/bullet.png</File>
-    <File>C:/Users/siets/Coding/Periode 1 2022-2023/C#/SpaceInvaders/SpaceInvaders/Content/spaceship.png</File>
+    <File>C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/Alien.png</File>
+    <File>C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bullet.png</File>
+    <File>C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/Score.spritefont</File>
+    <File>C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/spaceship.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
