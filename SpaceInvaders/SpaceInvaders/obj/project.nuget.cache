@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "MknKEqyKdU0mCVw+sjsNt0L1uCYQB6xXh6uni/NWr2CfIY0l2vDVzyfBorauf4TeOU30bY48zTN7UAHeKM+uRg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\siets\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\siets\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+  ],
+  "logs": []
+}
