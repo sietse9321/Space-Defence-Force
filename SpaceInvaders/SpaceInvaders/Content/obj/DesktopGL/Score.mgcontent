@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/Score.spritefont</SourceFile>
-  <SourceTime>2022-07-26T13:44:10+02:00</SourceTime>
-  <DestFile>C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bin/DesktopGL/Score.xnb</DestFile>
-  <DestTime>2024-01-19T10:16:05.4148206+01:00</DestTime>
+  <SourceFile>C:/Users/siets/Coding/Periode 1 2022-2023/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/Score.spritefont</SourceFile>
+  <SourceTime>2024-01-22T09:09:41.2719992+01:00</SourceTime>
+  <DestFile>C:/Users/siets/Coding/Periode 1 2022-2023/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bin/DesktopGL/Score.xnb</DestFile>
+  <DestTime>2024-01-22T10:13:11.3489213+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

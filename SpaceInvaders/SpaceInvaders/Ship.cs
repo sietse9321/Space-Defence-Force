@@ -4,8 +4,6 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace SpaceInvaders
 {
@@ -17,13 +15,13 @@ namespace SpaceInvaders
         private Vector2 _position;
         private float _speed;
         private GraphicsDeviceManager _graphics;
-        private float _delay = 1;
+        private float _delay = 1f;
         private SpriteFont _scoreFont;
         private int _score;
 
         private List<Bullet> _bullets;
 
-        public Ship(Texture2D ship, Texture2D bulletTexture, Vector2 position,SpriteFont scoreFont, float speed, GraphicsDeviceManager graphics)
+        public Ship(Texture2D ship, Texture2D bulletTexture, Vector2 position, SpriteFont scoreFont, float speed, GraphicsDeviceManager graphics)
         {
             _ship = ship;
             _position = position;
@@ -33,14 +31,27 @@ namespace SpaceInvaders
             _scoreFont = scoreFont;
             _bullets = new List<Bullet>();
         }
+        public Vector2 Position
+        {
+            get { return _position; }
+        }
+        public int SetHealth
+        {
+            set { _health -= value; }
+        }
         private bool CheckCollision(Bullet bullet, Alien alien)
         {
             Rectangle bulletRect = new Rectangle((int)bullet.Position.X, (int)bullet.Position.Y, 8, 8);
-            Rectangle alienRect = new Rectangle((int)alien.Position.X - (64 / 2), (int)alien.Position.Y - (64 / 2), 64, 64);
+            Rectangle alienRect = new Rectangle((int)alien.Position.X - (44 / 2), (int)alien.Position.Y - (44 / 2), 44, 44);
 
             return bulletRect.Intersects(alienRect);
         }
 
+        /// <summary>
+        /// Check on input move ship if near wall stop it.
+        /// if spacebar is pressed call shoot method then set _delay to the total gametime in seconds plus 1
+        /// </summary>
+        /// <param name="gameTime"></param>
         public void MoveShip(GameTime gameTime)
         {
             KeyboardState kstate = Keyboard.GetState();
@@ -64,23 +75,31 @@ namespace SpaceInvaders
             if (kstate.IsKeyDown(Keys.Space) && gameTime.TotalGameTime.TotalSeconds > _delay)
             {
                 ShootBullet(_bulletTexture);
-                _delay = 0.5f + (float)gameTime.TotalGameTime.TotalSeconds;
+                _delay = 1f + (float)gameTime.TotalGameTime.TotalSeconds;
             }
         }
+        /// <summary>
+        /// Create a new instance of Bullet and add it to the list
+        /// </summary>
+        /// <param name="bulletTexture"></param>
         public void ShootBullet(Texture2D bulletTexture)
         {
-            // Create a new instance of Bullet and add it to the list
-            Bullet newBullet = new Bullet(bulletTexture, new Vector2(_position.X, _position.Y - (_ship.Height / 2)), 200f,SpriteEffects.None);
+            Bullet newBullet = new Bullet(bulletTexture, new Vector2(_position.X, _position.Y - (_ship.Height / 2)), 200f, SpriteEffects.None);
             _bullets.Add(newBullet);
         }
+        /// <summary>
+        /// Update bullet check foreach bullet if they collided with an alien if so add score +10 and remove the alien from the list
+        /// If bullet is outside viewport bounds remove it
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="aliens"></param>
         public void UpdateBullets(GameTime gameTime, List<Alien> aliens)
         {
             // Update all bullets in the list
             foreach (Bullet bullet in _bullets.ToList())
             {
                 bullet.Update(gameTime);
-                // Use ToList() to avoid modifying the list during iteration
-                foreach (Alien alien in aliens.ToList()) 
+                foreach (Alien alien in aliens.ToList())
                 {
                     if (CheckCollision(bullet, alien))
                     {
@@ -108,8 +127,8 @@ namespace SpaceInvaders
                 bullet.Draw(pSpriteBatch);
             }
             pSpriteBatch.Draw(_ship, _position, null, Color.White, 0f, new Vector2(_ship.Width / 2, _ship.Height / 2), Vector2.One, SpriteEffects.None, 0f);
-            pSpriteBatch.DrawString(_scoreFont, "Score: " + _score, new Vector2(_graphics.PreferredBackBufferWidth -100, 550), Color.White);
-
+            pSpriteBatch.DrawString(_scoreFont, "Score: " + _score, new Vector2(900, 840), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+            pSpriteBatch.DrawString(_scoreFont, "Health: " + _health, new Vector2(100, 840), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
         }
     }
 }

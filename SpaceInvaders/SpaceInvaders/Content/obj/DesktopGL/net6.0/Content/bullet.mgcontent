@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bullet.png</SourceFile>
-  <SourceTime>2024-01-19T09:49:59.3990439+01:00</SourceTime>
-  <DestFile>C:/Sietse/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bin/DesktopGL/Content/bullet.xnb</DestFile>
-  <DestTime>2024-01-19T09:50:55.3706119+01:00</DestTime>
+  <SourceFile>C:/Users/siets/Coding/Periode 1 2022-2023/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bullet.png</SourceFile>
+  <SourceTime>2023-12-18T13:22:25.7062131+01:00</SourceTime>
+  <DestFile>C:/Users/siets/Coding/Periode 1 2022-2023/C#/Space-Invaders/SpaceInvaders/SpaceInvaders/Content/bin/DesktopGL/Content/bullet.xnb</DestFile>
+  <DestTime>2024-01-22T09:24:20.5424049+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

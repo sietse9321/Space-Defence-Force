@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj": {}
+    "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceDefenceForce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj": {
+    "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceDefenceForce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj",
-        "projectName": "SpaceInvaders",
-        "projectPath": "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceInvaders.csproj",
+        "projectUniqueName": "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceDefenceForce.csproj",
+        "projectName": "SpaceDefenceForce",
+        "projectPath": "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\SpaceDefenceForce.csproj",
         "packagesPath": "C:\\Users\\siets\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\siets\\Coding\\Periode 1 2022-2023\\C#\\Space-Invaders\\SpaceInvaders\\SpaceInvaders\\obj\\",
         "projectStyle": "PackageReference",
