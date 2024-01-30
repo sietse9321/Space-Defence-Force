@@ -31,10 +31,16 @@ namespace SpaceInvaders
             _scoreFont = scoreFont;
             _bullets = new List<Bullet>();
         }
+        /// <summary>
+        /// public vector2 to return the _position
+        /// </summary>
         public Vector2 Position
         {
             get { return _position; }
         }
+        /// <summary>
+        /// public int to set/change _health
+        /// </summary>
         public int SetHealth
         {
             set { _health -= value; }
@@ -120,15 +126,26 @@ namespace SpaceInvaders
                 }
             }
         }
+        /// <summary>
+        /// draws sprites and strings
+        /// </summary>
+        /// <param name="pSpriteBatch"></param>
         public void Draw(SpriteBatch pSpriteBatch)
         {
-            foreach (Bullet bullet in _bullets)
+            if (_score != 110)
             {
-                bullet.Draw(pSpriteBatch);
+                foreach (Bullet bullet in _bullets)
+                {
+                    bullet.Draw(pSpriteBatch);
+                }
+                pSpriteBatch.Draw(_ship, _position, null, Color.White, 0f, new Vector2(_ship.Width / 2, _ship.Height / 2), Vector2.One, SpriteEffects.None, 0f);
+                pSpriteBatch.DrawString(_scoreFont, "Score: " + _score, new Vector2(900, 840), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+                pSpriteBatch.DrawString(_scoreFont, "Health: " + _health, new Vector2(100, 840), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
             }
-            pSpriteBatch.Draw(_ship, _position, null, Color.White, 0f, new Vector2(_ship.Width / 2, _ship.Height / 2), Vector2.One, SpriteEffects.None, 0f);
-            pSpriteBatch.DrawString(_scoreFont, "Score: " + _score, new Vector2(900, 840), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
-            pSpriteBatch.DrawString(_scoreFont, "Health: " + _health, new Vector2(100, 840), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+            else
+            {
+                pSpriteBatch.DrawString(_scoreFont, "YOU WIN!!\nPress Escape to exit.", new Vector2(500, 512), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+            }
         }
     }
 }

@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace SpaceInvaders
 {
@@ -42,6 +41,10 @@ namespace SpaceInvaders
 
             return bulletRect.Intersects(shipRect);
         }
+        /// <summary>
+        /// draws every bullet from alien
+        /// </summary>
+        /// <param name="pSpriteBatch"></param>
         public void Draw(SpriteBatch pSpriteBatch)
         {
             foreach (Bullet bullet in _bullets)
@@ -51,6 +54,10 @@ namespace SpaceInvaders
             pSpriteBatch.Draw(_alien, _position, null, Color.White, 0f, new Vector2(_alien.Width / 2, _alien.Height / 2), Vector2.One, SpriteEffects.None, 0f);
         }
 
+        /// <summary>
+        /// handles basic alien movement and shooting
+        /// </summary>
+        /// <param name="gameTime"></param>
         public void AlienActions(GameTime gameTime)
         {
             Random rnd = new Random();
@@ -72,11 +79,8 @@ namespace SpaceInvaders
             }
             else
             {
-
                 _right = false;
-
                 _position.X -= 14 * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
             }
 
             // Reset the counter if needed
@@ -85,7 +89,6 @@ namespace SpaceInvaders
                 _elapsedTime = 0f;
                 _right = true;
             }
-
         }
 
         public void ShootBullet(Texture2D bulletTexture)
@@ -93,6 +96,10 @@ namespace SpaceInvaders
             Bullet newBullet = new Bullet(bulletTexture, new Vector2(_position.X, _position.Y + (_alien.Height / 2)), -200f, SpriteEffects.FlipVertically);
             _bullets.Add(newBullet);
         }
+        /// <summary>
+        /// updates all the bullets
+        /// </summary>
+        /// <param name="gameTime"></param>
         public void UpdateBullets(GameTime gameTime)
         {
             // Update all bullets in the list

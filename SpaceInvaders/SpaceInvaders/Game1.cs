@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
 using System.Collections.Generic;
 
 namespace SpaceInvaders
@@ -90,7 +89,7 @@ namespace SpaceInvaders
         {
             if (_beginGame == false)
             {
-                _spriteBatch.DrawString(_mainFont, "You are the ship at the bottom\nYou need to kill the aliens\nControls: A/D = move, spacebar = shoot\n\nPress ENTER to start", new Vector2(380,400), Color.White);
+                _spriteBatch.DrawString(_mainFont, "You are the ship at the bottom\nYou need to kill the aliens\nControls: A/D = move left/right, spacebar = shoot\n\nPress ENTER to start", new Vector2(380,400), Color.White);
 
                 KeyboardState kstate = Keyboard.GetState();
                 if (kstate.IsKeyDown(Keys.Enter))
