@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace SpaceInvaders
@@ -13,7 +14,7 @@ namespace SpaceInvaders
         private SpriteBatch _spriteBatch;
         private List<Alien> _alienList;
         private SpriteFont _mainFont;
-        private bool _beginGame = false;
+        private bool _beginGame = false, _gameOver;
         Ship ship;
         Alien alien;
 
@@ -34,7 +35,6 @@ namespace SpaceInvaders
         {
             // TODO: Add your initialization logic here
             shipPos = new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight - 100f);
-            alienPos = new Vector2(42f, 100f);
             _alienList = new List<Alien>();
 
             base.Initialize();
@@ -54,16 +54,7 @@ namespace SpaceInvaders
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            // TODO: Add your update logic
-            if (_beginGame == true)
-            {
-                ship.MoveShip(gameTime);
-                ship.UpdateBullets(gameTime, _alienList);
-                foreach (Alien alien in _alienList)
-                {
-                    alien.AlienActions(gameTime);
-                }
-            }
+            GameLogicUpdater(gameTime);
             base.Update(gameTime);
         }
 
@@ -85,11 +76,44 @@ namespace SpaceInvaders
 
             base.Draw(gameTime);
         }
+        /// <summary>
+        /// checks if score is 110 and enter has been pressed then resets the game
+        /// </summary>
+        /// <param name="gameTime"></param>
+        void GameLogicUpdater(GameTime gameTime)
+        {
+            if (_gameOver)
+            {
+                KeyboardState kstate = Keyboard.GetState();
+                if (kstate.IsKeyDown(Keys.Enter))
+                {
+                    _gameOver = false;
+                    LoadStartingContent();
+                }
+            }
+            else
+            {
+                if (_beginGame == true)
+                {
+                    ship.MoveShip(gameTime);
+                    ship.UpdateBullets(gameTime, _alienList);
+                    foreach (Alien alien in _alienList)
+                    {
+                        alien.AlienActions(gameTime);
+                    }
+
+                    if (ship.GetScore == 110)
+                    {
+                        _gameOver = true;
+                    }
+                }
+            }
+        }
         void MainMenu()
         {
             if (_beginGame == false)
             {
-                _spriteBatch.DrawString(_mainFont, "You are the ship at the bottom\nYou need to kill the aliens\nControls: A/D = move left/right, spacebar = shoot\n\nPress ENTER to start", new Vector2(380,400), Color.White);
+                _spriteBatch.DrawString(_mainFont, "You are the ship at the bottom\nYou need to kill the aliens\nControls: A/D = move left/right, spacebar = shoot\n\nPress ENTER to start", new Vector2(380, 400), Color.White);
 
                 KeyboardState kstate = Keyboard.GetState();
                 if (kstate.IsKeyDown(Keys.Enter))
@@ -105,6 +129,7 @@ namespace SpaceInvaders
         /// </summary>
         void LoadStartingContent()
         {
+            alienPos = new Vector2(42f, 100f);
             ship = new Ship(spaceShip, bulletTexture, shipPos, _mainFont, 200f, _graphics);
 
             for (int i = 0; i < 11; i++)

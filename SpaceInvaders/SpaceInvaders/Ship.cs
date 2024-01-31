@@ -45,6 +45,10 @@ namespace SpaceInvaders
         {
             set { _health -= value; }
         }
+        public int GetScore
+        {
+            get { return _score; }
+        }
         private bool CheckCollision(Bullet bullet, Alien alien)
         {
             Rectangle bulletRect = new Rectangle((int)bullet.Position.X, (int)bullet.Position.Y, 8, 8);
