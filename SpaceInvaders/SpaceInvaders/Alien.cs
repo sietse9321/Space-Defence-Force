@@ -112,7 +112,7 @@ namespace SpaceInvaders
                     _bullets.Remove(bullet);
                     Console.WriteLine("Bullet hit an alien!");
 
-                    _ship.SetHealth = 1;
+                    _ship.Health = 1;
                     Console.WriteLine("Removed alien");
                 }
 

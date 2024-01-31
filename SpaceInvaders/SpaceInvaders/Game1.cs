@@ -101,6 +101,10 @@ namespace SpaceInvaders
                     {
                         alien.AlienActions(gameTime);
                     }
+                    if( ship.Health == 0)
+                    {
+                        _gameOver = true;
+                    }
 
                     if (ship.GetScore == 110)
                     {
@@ -129,6 +133,7 @@ namespace SpaceInvaders
         /// </summary>
         void LoadStartingContent()
         {
+            _alienList.Clear();
             alienPos = new Vector2(42f, 100f);
             ship = new Ship(spaceShip, bulletTexture, shipPos, _mainFont, 200f, _graphics);
 

@@ -41,9 +41,10 @@ namespace SpaceInvaders
         /// <summary>
         /// public int to set/change _health
         /// </summary>
-        public int SetHealth
+        public int Health
         {
             set { _health -= value; }
+            get { return _health; }
         }
         public int GetScore
         {
@@ -136,7 +137,7 @@ namespace SpaceInvaders
         /// <param name="pSpriteBatch"></param>
         public void Draw(SpriteBatch pSpriteBatch)
         {
-            if (_score != 110)
+            if (_score != 110 && _health != 0)
             {
                 foreach (Bullet bullet in _bullets)
                 {
@@ -146,9 +147,13 @@ namespace SpaceInvaders
                 pSpriteBatch.DrawString(_scoreFont, "Score: " + _score, new Vector2(900, 840), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
                 pSpriteBatch.DrawString(_scoreFont, "Health: " + _health, new Vector2(100, 840), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
             }
+            else if (_health == 0)
+            {
+                pSpriteBatch.DrawString(_scoreFont, "You lost :( nPress Escape to exit.\n Or press Enter to restart.", new Vector2(500, 512), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+            }
             else
             {
-                pSpriteBatch.DrawString(_scoreFont, "YOU WIN!!\nPress Escape to exit.", new Vector2(500, 512), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+                pSpriteBatch.DrawString(_scoreFont, "YOU WIN!!\nPress Escape to exit.\n Or press Enter to restart.", new Vector2(500, 512), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
             }
         }
     }
